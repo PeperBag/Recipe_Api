@@ -8,6 +8,9 @@ class Get{
     public function getRecipes($id = null)
     {
         $sqlString = "SELECT * FROM recipe_tbl";
+        if($id != null){
+            $sqlString .= " WHERE " . $id;
+        }
 
         $data = array();
         $errmsg = "";
