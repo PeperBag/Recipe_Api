@@ -5,7 +5,7 @@ class Get{
     public function __construct(\PDO $pdo){
         $this->pdo = $pdo;
     }
-    public function getRecipes()
+    public function getRecipes($id = null)
     {
         $sqlString = "SELECT * FROM recipe_tbl";
 

@@ -24,10 +24,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
         switch ($request[0]) {
 
             case "recipes":
-                echo json_encode($get->getRecipes());
+                if (count($request) > 1) {
+                    echo json_encode($get->getRecipes($request[1]));
+                }
+                else {
+                    echo json_encode($get->getRecipes());
+                }
                 break;
             case "ingredients":
-                echo $get->getIngredient();
+                echo json_encode($get->getIngredient());
                 break;
 
             default:
