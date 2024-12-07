@@ -1,6 +1,6 @@
 <?php
 
-require_once "./configs/config.php";
+require_once "./configs/db.php";
 require_once "./modules/Get.php";
 require_once "./modules/Post.php";
 
@@ -24,7 +24,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         switch ($request[0]) {
 
             case "recipes":
-                echo $get->getRecipes();
+                echo json_encode($get->getRecipes());
                 break;
             case "ingredients":
                 echo $get->getIngredient();
@@ -35,6 +35,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 echo "this is invalid endponit";
                 break;
         }
+
+        break;
 
     case "POST":
         $body = json_decode(file_get_contents("php://input"));

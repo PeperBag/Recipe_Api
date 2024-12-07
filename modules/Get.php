@@ -7,14 +7,14 @@ class Get{
     }
     public function getRecipes()
     {
-        $sqlString = "SELECT * FROM recipe";
+        $sqlString = "SELECT * FROM recipe_tbl";
 
         $data = array();
         $errmsg = "";
         $code = 0;
 
         try {
-            if ($result = $this->pdo->query($sqlString)) {
+            if ($result = $this->pdo->query($sqlString)->fetchALL()) {
                 foreach ($result as $record) {
                     array_push($data, $record);
                 }
