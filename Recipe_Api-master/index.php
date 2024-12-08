@@ -1,1 +1,0 @@
-Hello kung sino man bumabasa ng ito
